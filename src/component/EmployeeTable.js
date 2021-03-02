@@ -8,7 +8,9 @@ function EmployeeTable(props) {
         <td>{props.position}</td>
         <td>{props.salary}</td>
         <td>{props.department}</td>
-
+        <button onClick={() => props.sortByName()} className="btn btn-warning">
+          SortNames
+        </button>
         <button onClick={() => props.removeEmployee(props.id)} className="btn btn-danger">
           Delete
         </button>
