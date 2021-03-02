@@ -1,23 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import employeeList from "./employeeList.json";
+import EmployeeTable from "./component/EmployeeTable";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <EmployeeTable name={employeeList} />
     </div>
   );
 }

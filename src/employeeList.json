@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Matt Damon",
+      "position": "Senior Developer",
+      "salary": 90000,
+      "department": "Software Development"
+    },
+    {
+      "id": 2,
+      "name": "Ryan Seacrest",
+      "position": "Backend Developer",
+      "salary": 60000,
+      "department": "Software Development"
+    },
+    {
+      "id": 3,
+      "name": "Jon Legend",
+      "position": "Front-end Developer",
+      "salary": 70000,
+      "department": "Software Development"
+    },
+    {
+      "id": 4,
+      "name": "Dexter Labor",
+      "position": "Designer",
+      "salary": 50000,
+      "department": "Software Development"
+    },
+    {
+      "id": 5,
+      "name": "Joe peshie",
+      "position": "Software Engineer",
+      "salary": 70000,
+      "department": "Software Development"
+    },
+    {
+      "id": 6,
+      "name": "Doug Funnie",
+      "position": "Assistant Developer",
+      "salary": 45000,
+      "department": "Software Development"
+    }
+  ]
