@@ -5,16 +5,12 @@ function EmployeeTable(props) {
     <tbody>
       <tr>
         <td>{props.id}</td>
-        <td>{props.name}</td>
-        <td>{props.position}</td>
-        <td>{props.salary}</td>
-        <td>{props.department}</td>
-        <button onClick={() => props.sortByName()} className="btn btn-warning">
-          SortNames
-        </button>
-        <button onClick={() => props.sortById()} className="btn btn-success">
-          SortId
-        </button>
+        <td>{props.firstName}</td>
+        <td>{props.lastName}</td>
+        <td>{props.email}</td>
+        <td>
+          <img src={props.thumbnail}></img>
+        </td>
       </tr>
     </tbody>
   );

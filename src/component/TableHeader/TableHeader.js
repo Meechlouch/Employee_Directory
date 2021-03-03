@@ -5,10 +5,10 @@ function TableHeader() {
     <thead>
       <tr>
         <th>ID#</th>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Salary</th>
-        <th>Department</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+        <th>Photo</th>
       </tr>
     </thead>
   );
