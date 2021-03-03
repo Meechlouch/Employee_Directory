@@ -1,7 +1,7 @@
 {
   "name": "employee_directory",
   "version": "0.1.0",
-  "homepage": "https://Meechlouch.github.io/Employee_Directory",
+  "homepage": "https://meechlouch.github.io/Employee_Directory/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
