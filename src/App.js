@@ -8,9 +8,8 @@ import API from "./utils/API";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  // const [removed, removeEmployee] = useState(employees);
-  // const [sortId, sortById] = useState(employees);
-  // const [sortName, sortByName] = useState(employees);
+  const [sortName, setSortName] = useState([]);
+  const [sortId, setById] = useState([]);
 
   useEffect(() => {
     loadEmployees();
@@ -44,23 +43,33 @@ function App() {
     <div className="container">
       <h1>Employee Directory</h1>
       <SearchForm />
-      {/* <button onClick={() => props.sortByName()} className="btn btn-warning">
-        SortNames
-      </button>
-      <button onClick={() => props.sortById()} className="btn btn-success">
-        SortId
-      </button> */}
+      {
+        <button onClick={() => setById(employees.sort((a, b) => (a.id > b.id ? 1 : -1)))} className="btn btn-success">
+          SortId
+        </button>
+      }
+      {
+        <button
+          onClick={() => setSortName(employees.sort((a, b) => (a.firstName > b.firstName ? 1 : -1)))}
+          className="btn btn-warning"
+        >
+          Order Names
+        </button>
+      }
       <table className="table table-striped">
         <TableHeader />
-        {employees.map((employee) => (
-          <EmployeeTable
-            id={employee.id}
-            firstName={employee.firstName}
-            lastName={employee.lastName}
-            email={employee.email}
-            thumbnail={employee.picture}
-          />
-        ))}
+        <tbody>
+          {employees.map((employee) => (
+            <EmployeeTable
+              key={employee.id}
+              id={employee.id}
+              firstName={employee.firstName}
+              lastName={employee.lastName}
+              email={employee.email}
+              thumbnail={employee.picture}
+            />
+          ))}
+        </tbody>
       </table>
     </div>
   );

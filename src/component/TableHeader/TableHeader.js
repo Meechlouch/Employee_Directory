@@ -4,11 +4,11 @@ function TableHeader() {
   return (
     <thead>
       <tr>
-        <th>ID#</th>
-        <th>First</th>
-        <th>Last</th>
-        <th>Email</th>
-        <th>Photo</th>
+        <th scope="col">ID#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Photo</th>
       </tr>
     </thead>
   );
