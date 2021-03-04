@@ -1,48 +1,27 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./style.css";
 
-class SearchForm extends Component {
-  // Setting the component's initial state
-  state = {
-    fullName: "",
+function SearchForm(props) {
+  const [state, setState] = useState();
+
+  const handleInputChange = (event) => {
+    setState(event.target.value);
+    console.log(state);
+    let lowerCase = event.target.value.toLowerCase();
+    console.log(lowerCase);
+    let newArr = props.employees.filter((employee) => employee.firstName.toLowerCase().indexOf(lowerCase) !== -1);
+    console.log(newArr);
+    props.empFilter(newArr);
   };
 
-  handleInputChange = (event) => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = event.target;
-
-    // Updating the input's state
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleFormSubmit = (event) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-
-    this.setState({
-      fullName: "",
-    });
-  };
-
-  render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
-    return (
-      <div>
-        <form className="form">
-          <input
-            value={this.state.fullName}
-            name="fullName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Full Name"
-          />
-          <button onClick={this.handleFormSubmit}>Submit</button>
-        </form>
-      </div>
-    );
-  }
+  // Notice how each input has a `value`, `name`, and `onChange` prop
+  return (
+    <div>
+      <form className="form">
+        <input name="fullName" onChange={(event) => handleInputChange(event)} type="text" placeholder="Full Name" />
+      </form>
+    </div>
+  );
 }
 
 export default SearchForm;

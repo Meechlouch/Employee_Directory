@@ -8,8 +8,9 @@ import API from "./utils/API";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  const [sortedNames, setSortName] = useState([]);
-  const [sortedIDs, setById] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [, setSortName] = useState([]);
+  const [, setById] = useState([]);
 
   useEffect(() => {
     loadEmployees();
@@ -19,6 +20,7 @@ function App() {
     API.getEmployees()
       .then((allEmployees) => {
         setEmployees(allEmployees);
+        setFilter(allEmployees);
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +49,7 @@ function App() {
   return (
     <div className="container">
       <h1>Employee Directory</h1>
-      <SearchForm />
+      <SearchForm employees={employees} empFilter={setFilter} />
       {
         <button onClick={sortById} className="btn btn-success">
           SortId
@@ -61,7 +63,7 @@ function App() {
       <table className="table table-striped">
         <TableHeader />
         <tbody>
-          {employees.map((employee) => (
+          {filter.map((employee) => (
             <EmployeeTable
               key={employee.id}
               id={employee.id}
