@@ -8,8 +8,8 @@ import API from "./utils/API";
 
 function App() {
   const [employees, setEmployees] = useState([]);
-  const [sortName, setSortName] = useState([]);
-  const [sortId, setById] = useState([]);
+  const [sortedNames, setSortName] = useState([]);
+  const [sortedIDs, setById] = useState([]);
 
   useEffect(() => {
     loadEmployees();
@@ -17,9 +17,8 @@ function App() {
 
   function loadEmployees() {
     API.getEmployees()
-      .then((employees) => {
-        console.log(employees);
-        setEmployees(employees);
+      .then((allEmployees) => {
+        setEmployees(allEmployees);
       })
       .catch((err) => {
         console.log(err);
@@ -31,28 +30,31 @@ function App() {
   //   return employees.filter((employee) => employee.id !== id);
   // }
 
-  // function sortByName() {
-  //   return employees.sort((a, b) => (a.name > b.name ? 1 : -1));
-  // }
+  const sortNames = () => {
+    let sortedNames = employees.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
+    console.log(sortedNames);
+    setSortName({
+      firstName: sortedNames,
+    });
+  };
 
-  // function sortById() {
-  //   return employees.sort((a, b) => (a.id > b.id ? 1 : -1));
-  // }
+  const sortById = () => {
+    let sortedIDs = employees.sort((a, b) => (a.id > b.id ? 1 : -1));
+    console.log(sortedIDs);
+    setById({ sortedIDs });
+  };
 
   return (
     <div className="container">
       <h1>Employee Directory</h1>
       <SearchForm />
       {
-        <button onClick={() => setById(employees.sort((a, b) => (a.id > b.id ? 1 : -1)))} className="btn btn-success">
+        <button onClick={sortById} className="btn btn-success">
           SortId
         </button>
       }
       {
-        <button
-          onClick={() => setSortName(employees.sort((a, b) => (a.firstName > b.firstName ? 1 : -1)))}
-          className="btn btn-warning"
-        >
+        <button onClick={sortNames} className="btn btn-warning">
           Order Names
         </button>
       }
