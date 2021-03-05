@@ -10,6 +10,9 @@ function EmployeeTable(props) {
       <td>
         <img src={props.thumbnail} alt="profile"></img>
       </td>
+      <button onClick={() => props.removeEmployee(props.id)} className="btn btn-danger">
+        Delete
+      </button>
     </tr>
   );
 }
