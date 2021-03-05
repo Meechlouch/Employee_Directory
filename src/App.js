@@ -7,11 +7,7 @@ import SearchForm from "./component/SearchForm/SearchForm.js";
 import API from "./utils/API";
 
 function App() {
-  const [employees, setEmployees] = useState([]);
   const [filter, setFilter] = useState([]);
-  // const [s, setSortName] = useState([]);
-  // const [, setById] = useState([]);
-  const [removeEmp, setRemoveEmp] = useState([]);
 
   useEffect(() => {
     loadEmployees();
@@ -20,9 +16,7 @@ function App() {
   function loadEmployees() {
     API.getEmployees()
       .then((allEmployees) => {
-        setEmployees(allEmployees);
         setFilter(allEmployees);
-        setRemoveEmp(allEmployees);
       })
       .catch((err) => {
         console.log(err);
@@ -30,10 +24,8 @@ function App() {
   }
 
   const removeEmployee = (id) => {
-    console.log(`This is the ${id}`);
-    console.log(employees.filter((employee) => employee.id !== id));
-    const empRemoved = employees.filter((employee) => employee.id !== id);
-    setRemoveEmp(empRemoved);
+    let removed = filter.filter((employee) => employee.id !== id);
+    setFilter(removed);
   };
 
   const sortNames = () => {
@@ -53,7 +45,7 @@ function App() {
   return (
     <div className="container">
       <h1>Employee Directory</h1>
-      <SearchForm employees={employees} empFilter={setFilter} />
+      <SearchForm employees={filter} empFilter={setFilter} />
       <button onClick={sortById} className="btn btn-success">
         SortId
       </button>
