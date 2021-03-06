@@ -19,7 +19,7 @@ Using Reactjs, this is an application is for employers to quickly access employe
 by a unique id or by name, delete employees, and also when a user types a name in the search bar, that employee is
 filtered from the rest.
 
-  <iframe src="https://drive.google.com/file/d/1y8ocgWbmrbqKGujzJcuYaFuwABBq9erX/preview" width="340" height="280"></iframe>
+<img src="./public/myFile.gif"></img>
 
 Here is the [deployed](https://meechlouch.github.io/Employee_Directory/) version.
 
